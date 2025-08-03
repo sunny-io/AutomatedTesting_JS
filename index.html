@@ -1,7 +1,316 @@
-<html>
-  <body>  <h1>
-    Work in Progress
-  </h1>
-    </body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
+    <title>Testautomation Snippets JavaScript</title>
+  </head>
+
+  <body>
+    <div class="container justify-content-center my-4"">
+      <h1>Testautomation Course Frauenloop Summer 2025</h1>
+      <div class="justify-content-center my-4"> 
+        <p>Many thanks to all the people providing pages to practice automated testing with!</p>
+
+      </div>
+      <h2>First Cycle - Basic Automation of Websites</h2>
+  
+
+        <div class="row justify-content-center my-4">
+          <div class="col-12 col-md-10 col-lg-8">
+            <div class="card mx-auto" style="max-width: 800px">
+              <div class="card-header">
+                <h1 class="h4 mb-0">Dynamic Content</h1>
+              </div>
+              <div class="card-body">
+                <p>
+                  Page tested:
+                  <a
+                    href="https://moatazeldebsy.github.io/test-automation-practices/?#/dynamic-elements"
+                    target="_blank"
+                  >
+                    https://moatazeldebsy.github.io/test-automation-practices/?#/dynamic-elements
+                  </a>
+                </p>
+                <div class="accordion" id="dynamicContentAccordion">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTestcases">
+                      <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseTestcases"
+                        aria-expanded="true"
+                        aria-controls="collapseTestcases"
+                      >
+                        Testcases
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseTestcases"
+                      class="accordion-collapse collapse show"
+                      aria-labelledby="headingTestcases"
+                      data-bs-parent="#dynamicContentAccordion"
+                    >
+                      <div class="accordion-body">
+                        <ol>
+                          <li>
+                            Toggle Hide-Button from Hide to Show: Content is
+                            displayed
+                          </li>
+                          <li>
+                            Toggle Hide-Button from Show to Hide: Content is not
+                            displayed
+                          </li>
+                          <li>
+                            Testcases for various slider element positions
+                          </li>
+                        </ol>
+                        <p>
+                          Slider positions were set manually because React Apps
+                          don't allow anonymous data manipulation from the
+                          console.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingHowToRun">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseHowToRun"
+                        aria-expanded="false"
+                        aria-controls="collapseHowToRun"
+                      >
+                        How to Run Test
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseHowToRun"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="headingHowToRun"
+                      data-bs-parent="#dynamicContentAccordion"
+                    >
+                      <div class="accordion-body">
+                        <strong>Toggle Show/Hide</strong>
+                        <pre><code>checkHideShow()</code></pre>
+                        <strong>Check Time till Dynamic Content Appears</strong>
+                        <ol>
+                          <li>Set slider position</li>
+                          <li>Run test</li>
+                        </ol>
+                        <pre><code>checkDynamicContent(times)</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingLocator">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseLocator"
+                        aria-expanded="false"
+                        aria-controls="collapseLocator"
+                      >
+                        Locator Strategy
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseLocator"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="headingLocator"
+                      data-bs-parent="#dynamicContentAccordion"
+                    >
+                      <div class="accordion-body">
+                        <ul>
+                          <li>
+                            For elements that exist on page load, constants for
+                            the nodes were used. The maintainer of the page
+                            provides the elements with
+                            <code>data-test</code> attributes that allow easy
+                            identification.
+                          </li>
+                          <li>
+                            For dynamically generated elements, the parent
+                            element's first child was determined at runtime.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFunction">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseFunction"
+                        aria-expanded="false"
+                        aria-controls="collapseFunction"
+                      >
+                        Function Description
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseFunction"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="headingFunction"
+                      data-bs-parent="#dynamicContentAccordion"
+                    >
+                      <div class="accordion-body">
+                        <strong>determineExpected()</strong>
+                        <p>
+                          Checks the <code>classList.length</code> of the
+                          hidable element and returns the opposite using a
+                          ternary expression. This is a lazy check because the
+                          tested element had no other classes. In real life,
+                          checking for
+                          <code>classList.contains('hidden')</code> would be the
+                          better choice.
+                        </p>
+                        <strong>checkDynamicContent(times = 10)</strong>
+                        <p>
+                          <code>checkDynamicContent</code> uses a
+                          <code>setInterval</code> of 500 ms to check if the
+                          loading indicator is still present. The check stops
+                          after <code>times*500ms</code>. Each interval console
+                          logs the time passed and the status of the loading
+                          indicator. Assertion of time passed until UL appears
+                          against value set in slider.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mx-auto" style="max-width: 800px">
+          <div class="card-header">
+            <h1 class="h4 mb-0">Dynamic Table</h1>
+          </div>
+          <div class="card-body">
+            <p>
+              Page tested:
+              <a href="https://practice-automation.com/tables/"
+                >https://practice-automation.com/tables</a
+              >
+            </p>
+            <div class="accordion" id="dynamicTableAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTestcases">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTestcases"
+                    aria-expanded="true"
+                    aria-controls="collapseTestcases"
+                  >
+                    Testcases
+                  </button>
+                </h2>
+                <div
+                  id="collapseTestcases"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingTestcases"
+                  data-bs-parent="#dynamicTableAccordion"
+                >
+                  <div class="accordion-body">
+                    <p>
+                      Table of human readable testcases:
+                      <a
+                        href="https://docs.google.com/spreadsheets/d/1UB53EaM3oLqE9KoS3IaesyFbqGo6-P4CB0RgitVYlH8"
+                        >https://docs.google.com/spreadsheets/d/1UB53EaM3oLqE9KoS3IaesyFbqGo6-P4CB0RgitVYlH8</a
+                      >
+                    </p>
+                    <p>Testcases included in code as array of objects</p>
+                    <h3>Testcase Structure</h3>
+                    <p>
+                      Each testcase is an object with the following attributes:
+                    </p>
+                    <ul>
+                      <li>name: identifier of testcase, string</li>
+                      <li>caption: value for caption of new table, string</li>
+                      <li>
+                        tableID: value for id of new table; must be used to
+                        adress table in tests, string
+                      </li>
+                      <li>
+                        tabledata: array of row objects, attribute names=column
+                        names, values=cell content
+                      </li>
+                      <li>
+                        expected: object with attributes and values to assert
+                        against
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingHowToRun">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseHowToRun"
+                  aria-expanded="false"
+                  aria-controls="collapseHowToRun"
+                >How to Run Test
+                </button>
+              </h2>
+              <div
+                id="collapseHowToRun"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingHowToRun"
+                data-bs-parent="#dynamicTableAccordion"
+              >
+                <div class="accordion-body">
+                 
+                  <code> runTest (testcase)</code>
+                  <p>Examples:</p>
+                  <code> runTest(testcases[0])</code>
+                  <br>
+                  <code> runTest(generateTestcase(columns, rows))</code>
+
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingLocatorStrategy">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLocatorStrategy"
+                  aria-expanded="false" aria-controls="collapseLocatorStrategy">Locator Strategy
+                </button>
+              </h2>
+              <div id="collapseLocatorStrategy" class="accordion-collapse collapse show" aria-labelledby="headingLocatorStrategy"
+                data-bs-parent="#dynamicTableAccordion">
+                <div class="accordion-body">
+
+                  <p>Input element IDs are used as locators. </p>
+                  
+                  <p>The ID of the table changes according to the tableID provided in the testcase. <br/><code>testcase.tableID</code> is therefore used to
+                  address the table for assertions.
+            </p>
+                  
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
