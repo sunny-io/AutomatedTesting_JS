@@ -40,9 +40,86 @@
   <main class="main-bg p-lg-5">
     <h1 class="mb-4 text-center">Testautomation Course Frauenloop 2025</h1>
     <p class="text-center">Many thanks to all the people providing pages to practice automated testing with!</p>
-    <h2 class="mt-5 mb-3">First Cycle - Basic Automation of Websites</h2>
     <p>This page is still in Draft mode.</p>
+    <!--Second Cycle Card-->
+    <h2 class="mt-5 mb-3">My Second Cycle - Selenium Webdriver and Testing Frameworks</h2>
 
+        <!-- Eviltester Triangle -->
+    <h3 class="mt-4">Eviltester Triangle</h3>
+    <div class="card card-body mb-4">
+      <p><strong>Page tested:</strong> <a href="https://testpages.eviltester.com/styled/apps/triangle/triangle001.html" target="_blank">https://testpages.eviltester.com/styled/apps/triangle/triangle001.html</a></p>
+      <p><strong>Selenium Webdriver file:</strong> <a href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/triangle.js" target="_blank">triangle.js</a></p>
+      <p><strong>Assertion library:</strong> Chai</p>
+    
+      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
+        data-bs-target="#collapseTriangleTestcases" aria-expanded="false" aria-controls="collapseTriangleTestcases">
+        Testcases
+        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
+      </h4>
+      <div class="collapse" id="collapseTriangleTestcases">
+        <p><strong>Table of human readable testcases:</strong> <a href="https://docs.google.com/spreadsheets/d/1xAwU4QyGhVhD6U4DlsZsxvc1C1JJJGp6o3kXn2StTJM/edit?usp=drive_link" target="_blank">Google Sheet</a></p>
+        <p><strong>TestSets as JS file:</strong> <a href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/testdata_triangle.js" target="_blank">testdata_triangle.js</a></p>
+        <h5>Testcase Structure</h5>
+        <ul>
+          <li>name: testcase identifier, string</li>
+          <li>data: test set for test case, array of objects
+            <ul>
+              <li>input: array of 3 values for the triangle sides</li>
+              <li>output: expected answer of identify-triangle-action</li>
+            </ul>
+          </li>
+        </ul>
+        <p>Each test case is run with several sets of data to ensure robustness. The external testdata file contains one const for each testcase, gathered in <code>allTests</code> within the Selenium Webdriver script.</p>
+      </div>
+    
+      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
+        data-bs-target="#collapseTriangleHowToRun" aria-expanded="false" aria-controls="collapseTriangleHowToRun">
+        How to Run Test
+        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
+      </h4>
+      <div class="collapse" id="collapseTriangleHowToRun">
+        <p>Run <code>triangle.js</code> to execute all tests.</p>
+      </div>
+    
+      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
+        data-bs-target="#collapseTriangleLocator" aria-expanded="false" aria-controls="collapseTriangleLocator">
+        Locator Strategy
+        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
+      </h4>
+      <div class="collapse" id="collapseTriangleLocator">
+        <p>Input element IDs are used as locators. See <code>guiLocators</code> constant in the code.</p>
+      </div>
+    
+      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
+        data-bs-target="#collapseTriangleFunctions" aria-expanded="false" aria-controls="collapseTriangleFunctions">
+        Function Description
+        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
+      </h4>
+      <div class="collapse" id="collapseTriangleFunctions">
+        <h5>runAll(testSets)</h5>
+        <ul>
+          <li>Loops through all test cases and starts a new driver instance for each.</li>
+          <li>All test data sets in a test case are evaluated in the same browser instance to check for side effects.</li>
+        </ul>
+        <h5>test(testSet)</h5>
+        <ul>
+          <li>Main test function.</li>
+          <li>Initializes driver, asserts page title and elements, loops through all tests in the set and calls <code>inputOutput</code> for each, logs successful tests.</li>
+        </ul>
+        <h5>inputOutput(driver, testcase)</h5>
+        <ol>
+          <li>Clears input fields</li>
+          <li>Enters testcase input data</li>
+          <li>Clicks the button</li>
+          <li>Asserts the result</li>
+          <li>Clears the answer in the webpage</li>
+        </ol>
+      </div>
+    </div>
+
+    <!--First Cycle Card-->
+    <h2 class="mt-5 mb-3">My First Cycle - Basic Automation of Websites</h2>
+    
     <!-- Dynamic Tables Eviltester -->
     <h3 class="mt-4">Dynamic Tables Eviltester</h3>
     <div class="card card-body mb-4">
