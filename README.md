@@ -1,2 +1,3 @@
 # AutomatedTesting_JS
-JS Snippets for testing websites  - learning portfolio from FrauenLoop Automated Testing 1st Cycle
+- Selenium Webdriver Scripts - FrauenLoop Automated Testing 2nd Cycle
+- JS Snippets for testing websites  - FrauenLoop Automated Testing 1st Cycle
