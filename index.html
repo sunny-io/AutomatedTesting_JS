@@ -314,6 +314,99 @@ runTest(generateTestcase(columns, rows))</code></pre>
           slider.</p>
       </div>
     </div>
+
+<!-- Eviltester Triangle (Cycle 1) -->
+<h3 class="mt-4">Eviltester Triangle (Cycle 1)  </h3>
+<div class="card card-body mb-4">
+  <p><strong>Page tested:</strong> <a href="https://testpages.eviltester.com/styled/apps/triangle/triangle001.html" target="_blank">https://testpages.eviltester.com/styled/apps/triangle/triangle001.html</a></p>
+  <p><strong>JS Snippet:</strong> <a href="https://github.com/yekoshy/Codeless-Automation-25/blob/main/Silvia/week%202/testscript_triangle_app.js" target="_blank">testscript_triangle_app.js</a></p>
+
+  <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
+    data-bs-target="#collapseTriangleAltTestcases" aria-expanded="false" aria-controls="collapseTriangleAltTestcases">
+    Testcases
+    <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
+  </h4>
+  <div class="collapse" id="collapseTriangleAltTestcases">
+    <p><strong>Table of human readable testcases:</strong> <a href="https://docs.google.com/spreadsheets/d/1wtYLl9pBE3UuLPWlolm2Hn2XI5GBeRqaZkBvB9Q7NUg/edit?usp=sharing" target="_blank">Google Sheet</a></p>
+    <h5>Testcase Structure</h5>
+    <ul>
+      <li>Each test case is run with several sets of data for robustness.</li>
+      <li>Test data generated with ChatGPT and matched using <code>generateTestSet</code>.</li>
+      <li>Special test sets for "Not A Number" and very large numbers written by hand.</li>
+      <li>Final testSets are arrays of objects:
+        <ul>
+          <li><strong>input:</strong> array of 3 values for triangle sides</li>
+          <li><strong>output:</strong> expected answer of identify-triangle-action</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
+    data-bs-target="#collapseTriangleAltHowToRun" aria-expanded="false" aria-controls="collapseTriangleAltHowToRun">
+    How to Run Test
+    <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
+  </h4>
+  <div class="collapse" id="collapseTriangleAltHowToRun">
+    <p>Run the function with a test set of your choice, e.g. <code>testSetEqui</code>:</p>
+    <pre><code>testTestCase(testSetName)</code></pre>
+  </div>
+
+  <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
+    data-bs-target="#collapseTriangleAltLocator" aria-expanded="false" aria-controls="collapseTriangleAltLocator">
+    Locator Strategy
+    <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
+  </h4>
+  <div class="collapse" id="collapseTriangleAltLocator">
+    <p>Input element IDs are used as locators. Field IDs are generated from the base "side" in the loop calling <code>typeInField</code>.</p>
+  </div>
+
+  <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
+    data-bs-target="#collapseTriangleAltFunctions" aria-expanded="false" aria-controls="collapseTriangleAltFunctions">
+    Function Description
+    <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
+  </h4>
+  <div class="collapse" id="collapseTriangleAltFunctions">
+    <h5>generateTestSet(tcInput, tcOutput)</h5>
+    <ul>
+      <li>Helper function for test set generation</li>
+      <li>Loops through input data and assigns expected output</li>
+    </ul>
+    <h5>typeInField(fieldID, fieldData)</h5>
+    <ol>
+      <li>Puts fieldData in the input field</li>
+      <li>Asserts the value of the input field</li>
+    </ol>
+    <h5>clickButton(buttonID)</h5>
+    <ul>
+      <li>Clicks the button given as parameter</li>
+    </ul>
+    <h5>checkTriangle(testcase)</h5>
+    <ol>
+      <li>Loops through input data array and calls <code>typeInField</code> for each</li>
+      <li>Calls <code>clickButton</code></li>
+    </ol>
+    <h5>testTestCase(testCaseSet)</h5>
+    <ol>
+      <li>Loops through the testCaseSet and calls <code>checkTriangle</code> for each</li>
+      <li>Asserts the output</li>
+    </ol>
+  </div>
+
+  <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
+    data-bs-target="#collapseTriangleAltLessons" aria-expanded="false" aria-controls="collapseTriangleAltLessons">
+    Lessons Learned
+    <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
+  </h4>
+  <div class="collapse" id="collapseTriangleAltLessons">
+    <ul>
+      <li>Always make sure your assertion is robust!</li>
+      <li>Running testCaseSets for T002 - T006 seemed to work, but T007 (NaN) failed, and T008 failed sometimes.</li>
+      <li>Reason: Incorrect use of <code>setTimeout</code> and identical expected results in T002-T006 masked the issue.</li>
+    </ul>
+  </div>
+</div>
+
   </main>
   <!-- Bootstrap JS Bundle (includes Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
