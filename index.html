@@ -22,11 +22,8 @@
       padding: 32px 24px;
     }
 
-    .toggle-btn {
-      cursor: pointer;
-    }
-
-    h4 {
+    h4,
+    summary {
       text-justify: distribute;
     }
 
@@ -44,368 +41,304 @@
     <!--Second Cycle Card-->
     <h2 class="mt-5 mb-3">My Second Cycle - Selenium Webdriver and Testing Frameworks</h2>
 
-        <!-- Eviltester Triangle -->
+    <!-- Eviltester Triangle -->
     <h3 class="mt-4">Eviltester Triangle</h3>
-    <div class="card card-body mb-4">
-      <p><strong>Page tested:</strong> <a href="https://testpages.eviltester.com/styled/apps/triangle/triangle001.html" target="_blank">https://testpages.eviltester.com/styled/apps/triangle/triangle001.html</a></p>
-      <p><strong>Selenium Webdriver file:</strong> <a href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/triangle.js" target="_blank">triangle.js</a></p>
-      <p><strong>Assertion library:</strong> Chai</p>
-    
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
-        data-bs-target="#collapseTriangleTestcases" aria-expanded="false" aria-controls="collapseTriangleTestcases">
-        Testcases
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseTriangleTestcases">
-        <p><strong>Table of human readable testcases:</strong> <a href="https://docs.google.com/spreadsheets/d/1xAwU4QyGhVhD6U4DlsZsxvc1C1JJJGp6o3kXn2StTJM/edit?usp=drive_link" target="_blank">Google Sheet</a></p>
-        <p><strong>TestSets as JS file:</strong> <a href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/testdata_triangle.js" target="_blank">testdata_triangle.js</a></p>
-        <h5>Testcase Structure</h5>
-        <ul>
-          <li>name: testcase identifier, string</li>
-          <li>data: test set for test case, array of objects
-            <ul>
-              <li>input: array of 3 values for the triangle sides</li>
-              <li>output: expected answer of identify-triangle-action</li>
-            </ul>
-          </li>
-        </ul>
-        <p>Each test case is run with several sets of data to ensure robustness. The external testdata file contains one const for each testcase, gathered in <code>allTests</code> within the Selenium Webdriver script.</p>
-      </div>
-    
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
-        data-bs-target="#collapseTriangleHowToRun" aria-expanded="false" aria-controls="collapseTriangleHowToRun">
-        How to Run Test
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseTriangleHowToRun">
-        <p>Run <code>triangle.js</code> to execute all tests.</p>
-      </div>
-    
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
-        data-bs-target="#collapseTriangleLocator" aria-expanded="false" aria-controls="collapseTriangleLocator">
-        Locator Strategy
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseTriangleLocator">
-        <p>Input element IDs are used as locators. See <code>guiLocators</code> constant in the code.</p>
-      </div>
-    
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
-        data-bs-target="#collapseTriangleFunctions" aria-expanded="false" aria-controls="collapseTriangleFunctions">
-        Function Description
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseTriangleFunctions">
-        <h5>runAll(testSets)</h5>
-        <ul>
-          <li>Loops through all test cases and starts a new driver instance for each.</li>
-          <li>All test data sets in a test case are evaluated in the same browser instance to check for side effects.</li>
-        </ul>
-        <h5>test(testSet)</h5>
-        <ul>
-          <li>Main test function.</li>
-          <li>Initializes driver, asserts page title and elements, loops through all tests in the set and calls <code>inputOutput</code> for each, logs successful tests.</li>
-        </ul>
-        <h5>inputOutput(driver, testcase)</h5>
-        <ol>
-          <li>Clears input fields</li>
-          <li>Enters testcase input data</li>
-          <li>Clicks the button</li>
-          <li>Asserts the result</li>
-          <li>Clears the answer in the webpage</li>
-        </ol>
-      </div>
-    </div>
+    <p><strong>Page tested:</strong> <a href="https://testpages.eviltester.com/styled/apps/triangle/triangle001.html"
+        target="_blank">https://testpages.eviltester.com/styled/apps/triangle/triangle001.html</a></p>
+    <p><strong>Selenium Webdriver file:</strong> <a
+        href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/triangle.js"
+        target="_blank">triangle.js</a></p>
+    <p><strong>Assertion library:</strong> Chai</p>
+
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Testcases</summary>
+      <p><strong>Table of human readable testcases:</strong> <a
+          href="https://docs.google.com/spreadsheets/d/1xAwU4QyGhVhD6U4DlsZsxvc1C1JJJGp6o3kXn2StTJM/edit?usp=drive_link"
+          target="_blank">Google Sheet</a></p>
+      <p><strong>TestSets as JS file:</strong> <a
+          href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/testdata_triangle.js"
+          target="_blank">testdata_triangle.js</a></p>
+      <h5>Testcase Structure</h5>
+      <ul>
+        <li>name: testcase identifier, string</li>
+        <li>data: test set for test case, array of objects
+          <ul>
+            <li>input: array of 3 values for the triangle sides</li>
+            <li>output: expected answer of identify-triangle-action</li>
+          </ul>
+        </li>
+      </ul>
+      <p>Each test case is run with several sets of data to ensure robustness. The external testdata file contains one
+        const for each testcase, gathered in <code>allTests</code> within the Selenium Webdriver script.</p>
+    </details>
+
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">How to Run Test</summary>
+      <p>Run <code>triangle.js</code> to execute all tests.</p>
+    </details>
+
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Locator Strategy</summary>
+      <p>Input element IDs are used as locators. See <code>guiLocators</code> constant in the code.</p>
+    </details>
+
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Function Description</summary>
+      <h5>runAll(testSets)</h5>
+      <ul>
+        <li>Loops through all test cases and starts a new driver instance for each.</li>
+        <li>All test data sets in a test case are evaluated in the same browser instance to check for side effects.</li>
+      </ul>
+      <h5>test(testSet)</h5>
+      <ul>
+        <li>Main test function.</li>
+        <li>Initializes driver, asserts page title and elements, loops through all tests in the set and calls
+          <code>inputOutput</code> for each, logs successful tests.</li>
+      </ul>
+      <h5>inputOutput(driver, testcase)</h5>
+      <ol>
+        <li>Clears input fields</li>
+        <li>Enters testcase input data</li>
+        <li>Clicks the button</li>
+        <li>Asserts the result</li>
+        <li>Clears the answer in the webpage</li>
+      </ol>
+    </details>
 
     <!--First Cycle Card-->
     <h2 class="mt-5 mb-3">My First Cycle - Basic Automation of Websites</h2>
-    
+
     <!-- Dynamic Tables Eviltester -->
     <h3 class="mt-4">Dynamic Tables Eviltester</h3>
-    <div class="card card-body mb-4">
-      <p><strong>Page tested:</strong> <a href="https://testpages.eviltester.com/styled/tag/dynamic-table.html"
-          target="_blank">https://testpages.eviltester.com/styled/tag/dynamic-table.html</a></p>
-      <p><strong>JS Snippet:</strong> <a
-          href="https://github.com/yekoshy/Codeless-Automation-25/blob/main/Silvia/week11/eviltester_dynamic_table.js"
-          target="_blank">eviltester_dynamic_table.js</a></p>
+    <p><strong>Page tested:</strong> <a href="https://testpages.eviltester.com/styled/tag/dynamic-table.html"
+        target="_blank">https://testpages.eviltester.com/styled/tag/dynamic-table.html</a></p>
+    <p><strong>JS Snippet:</strong> <a
+        href="https://github.com/yekoshy/Codeless-Automation-25/blob/main/Silvia/week11/eviltester_dynamic_table.js"
+        target="_blank">eviltester_dynamic_table.js</a></p>
 
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2 " data-bs-toggle="collapse"
-        data-bs-target="#collapseDTTestcases" aria-expanded="false" aria-controls="collapseDTTestcases">
-        Testcases
-        <span class="ms-2"><i class="bi bi-chevron-down fs-6"></i></span>
-      </h4>
-      <div class="collapse" id="collapseDTTestcases">
-        <p><strong>Table of human readable testcases:</strong> <a
-            href="https://docs.google.com/spreadsheets/d/1UB53EaM3oLqE9KoS3IaesyFbqGo6-P4CB0RgitVYlH8"
-            target="_blank">Google Sheet</a></p>
-        <p>Testcases included in code as array of objects</p>
-        <h5>Testcase Structure</h5>
-        <ul>
-          <li>name: identifier of testcase, string</li>
-          <li>caption: value for caption of new table, string</li>
-          <li>tableID: value for id of new table; must be used to address table in tests, string</li>
-          <li>tabledata: array of row objects, attribute names=column names, values=cell content</li>
-          <li>expected: object with attributes and values to assert against</li>
-        </ul>
-      </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Testcases</summary>
+      <p><strong>Table of human readable testcases:</strong> <a
+          href="https://docs.google.com/spreadsheets/d/1UB53EaM3oLqE9KoS3IaesyFbqGo6-P4CB0RgitVYlH8"
+          target="_blank">Google Sheet</a></p>
+      <p>Testcases included in code as array of objects</p>
+      <h5>Testcase Structure</h5>
+      <ul>
+        <li>name: identifier of testcase, string</li>
+        <li>caption: value for caption of new table, string</li>
+        <li>tableID: value for id of new table; must be used to address table in tests, string</li>
+        <li>tabledata: array of row objects, attribute names=column names, values=cell content</li>
+        <li>expected: object with attributes and values to assert against</li>
+      </ul>
+    </details>
 
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2 " data-bs-toggle="collapse"
-        data-bs-target="#collapseDTHowToRun" aria-expanded="false" aria-controls="collapseDTHowToRun">
-        How to run test
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseDTHowToRun">
-        <pre><code>runTest(testcase)</code></pre>
-        <p>Examples:</p>
-        <pre><code>runTest(testcases[0])
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">How to run test</summary>
+      <pre><code>runTest(testcase)</code></pre>
+      <p>Examples:</p>
+      <pre><code>runTest(testcases[0])
 runTest(generateTestcase(columns, rows))</code></pre>
-      </div>
+    </details>
 
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2 " data-bs-toggle="collapse"
-        data-bs-target="#collapseDTLocator" aria-expanded="false" aria-controls="collapseDTLocator">
-        Locator strategy
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseDTLocator">
-        <p>Input element IDs are used as locators.</p>
-        <p>The ID of the table changes according to the tableID provided in the testcase.<br>
-          <code>testcase.tableID</code> is therefore used to address the table for assertions.
-        </p>
-      </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Locator strategy</summary>
+      <p>Input element IDs are used as locators.</p>
+      <p>The ID of the table changes according to the tableID provided in the testcase.<br>
+        <code>testcase.tableID</code> is therefore used to address the table for assertions.
+      </p>
+    </details>
 
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2 " data-bs-toggle="collapse"
-        data-bs-target="#collapseDTFunctions" aria-expanded="false" aria-controls="collapseDTFunctions">
-        Function Description
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseDTFunctions">
-        <h5>runTest(testcase)</h5>
-        <ol>
-          <li>console.logs the testcase name</li>
-          <li>calls <code>enterData</code></li>
-          <li>calls <code>assertTable</code> with setTimeout to ensure table generation is finished before assertion is
-            executed</li>
-        </ol>
-        <h5>enterData(testcase)</h5>
-        <ol>
-          <li>Sets the values of the input fields using
-            <code>document.querySelector(attribute.locator).value = testcase.attribute</code>
-          </li>
-          <li>JSON.stringify used to convert <code>testcase.tabledata</code> to target format.</li>
-          <li>Clicks the <em>Refresh</em> button</li>
-        </ol>
-        <h5>assertTable(testcase)</h5>
-        <ul>
-          <li>Asserts the ID and caption of the generated table.</li>
-          <li>Current assertions for table content are number of rows and columns.</li>
-          <li>Expected number of columns is calculated from the number of unique attribute names in the tabledata array.
-          </li>
-          <li>Cell content was verified by visual inspection.</li>
-          <li>For generated testcases, each cell has the x,y coordinates of the cell as value.</li>
-        </ul>
-        <h5>generateTestcase (rows, columns)</h5>
-        <p>Helper function to ensure testcase with generated tabledata has the right structure.</p>
-        <h5>myGridHelper(columns, rows)</h5>
-        <ul>
-          <li>Helper function to generate the tabledata for testing large tables.</li>
-          <li>Simple for-loop to generate the required number of column names.</li>
-          <li>2 nested for-loops to generate the rows and cell content.</li>
-          <li>Cell content are the x,y coordinates of the cell in the table. This makes cell content verification easy.
-          </li>
-        </ul>
-      </div>
-    </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Function Description</summary>
+      <h5>runTest(testcase)</h5>
+      <ol>
+        <li>console.logs the testcase name</li>
+        <li>calls <code>enterData</code></li>
+        <li>calls <code>assertTable</code> with setTimeout to ensure table generation is finished before assertion is
+          executed</li>
+      </ol>
+      <h5>enterData(testcase)</h5>
+      <ol>
+        <li>Sets the values of the input fields using
+          <code>document.querySelector(attribute.locator).value = testcase.attribute</code>
+        </li>
+        <li>JSON.stringify used to convert <code>testcase.tabledata</code> to target format.</li>
+        <li>Clicks the <em>Refresh</em> button</li>
+      </ol>
+      <h5>assertTable(testcase)</h5>
+      <ul>
+        <li>Asserts the ID and caption of the generated table.</li>
+        <li>Current assertions for table content are number of rows and columns.</li>
+        <li>Expected number of columns is calculated from the number of unique attribute names in the tabledata array.
+        </li>
+        <li>Cell content was verified by visual inspection.</li>
+        <li>For generated testcases, each cell has the x,y coordinates of the cell as value.</li>
+      </ul>
+      <h5>generateTestcase (rows, columns)</h5>
+      <p>Helper function to ensure testcase with generated tabledata has the right structure.</p>
+      <h5>myGridHelper(columns, rows)</h5>
+      <ul>
+        <li>Helper function to generate the tabledata for testing large tables.</li>
+        <li>Simple for-loop to generate the required number of column names.</li>
+        <li>2 nested for-loops to generate the rows and cell content.</li>
+        <li>Cell content are the x,y coordinates of the cell in the table. This makes cell content verification easy.
+        </li>
+      </ul>
+    </details>
 
     <!-- WordPress Tables -->
     <h3 class="mt-4">WordPress Tables (lookup, paging, filtering)</h3>
-    <div class="card card-body mb-4">
-      <p><strong>Page tested:</strong> <a href="https://practice-automation.com/tables/"
-          target="_blank">https://practice-automation.com/tables/</a></p>
-      <p><strong>JS Snippet:</strong> <a
-          href="https://github.com/yekoshy/Codeless-Automation-25/blob/main/Silvia/week11/STLookup_a-dTesting.js"
-          target="_blank">STLookup_a-dTesting.js</a></p>
-      <p><strong>Selenium IDE:</strong> <a
-          href="https://github.com/yekoshy/Codeless-Automation-25/blob/main/Silvia/week11/wp_tables_practice-automation.side"
-          target="_blank">wp_tables_practice-automation.side</a></p>
+    <p><strong>Page tested:</strong> <a href="https://practice-automation.com/tables/"
+        target="_blank">https://practice-automation.com/tables/</a></p>
+    <p><strong>JS Snippet:</strong> <a
+        href="https://github.com/yekoshy/Codeless-Automation-25/blob/main/Silvia/week11/STLookup_a-dTesting.js"
+        target="_blank">STLookup_a-dTesting.js</a></p>
+    <p><strong>Selenium IDE:</strong> <a
+        href="https://github.com/yekoshy/Codeless-Automation-25/blob/main/Silvia/week11/wp_tables_practice-automation.side"
+        target="_blank">wp_tables_practice-automation.side</a></p>
 
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2 " data-bs-toggle="collapse"
-        data-bs-target="#collapseWPTestcases" aria-expanded="false" aria-controls="collapseWPTestcases">
-        Testcases
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseWPTestcases">
-        <ol>
-          <li>Lookup Prices in static table<br>
-            <code>expectedPriceList = [{name:'Laptop', price:'$1200.00'}, {name:'Marbles', price:'$1.25'}, {name:'Oranges', price:'$3.99'}]</code>
-          </li>
-          <li>Page and Filter Dynamic Table on same page</li>
-        </ol>
-      </div>
-    </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Testcases</summary>
+      <ol>
+        <li>Lookup Prices in static table<br>
+          <code>expectedPriceList = [{name:'Laptop', price:'$1200.00'}, {name:'Marbles', price:'$1.25'}, {name:'Oranges', price:'$3.99'}]</code>
+        </li>
+        <li>Page and Filter Dynamic Table on same page</li>
+      </ol>
+    </details>
 
     <!-- Dynamic Content -->
     <h3 class="mt-4">Dynamic Content</h3>
-    <div class="card card-body mb-4">
-      <p><strong>Page tested:</strong> <a
-          href="https://moatazeldebsy.github.io/test-automation-practices/?#/dynamic-elements"
-          target="_blank">https://moatazeldebsy.github.io/test-automation-practices/?#/dynamic-elements</a></p>
-      <p><strong>JS-Snippet:</strong><a href="https://github.com/yekoshy/Codeless-Automation-25/blob/main/Silvia/week8/dynamicContentTesting.js" target="_blank">dynamicContentTesting.js</a></p>
-      <p><strong>Selenium IDE:</strong></p>
+    <p><strong>Page tested:</strong> <a
+        href="https://moatazeldebsy.github.io/test-automation-practices/?#/dynamic-elements"
+        target="_blank">https://moatazeldebsy.github.io/test-automation-practices/?#/dynamic-elements</a></p>
+    <p><strong>JS-Snippet:</strong><a
+        href="https://github.com/yekoshy/Codeless-Automation-25/blob/main/Silvia/week8/dynamicContentTesting.js"
+        target="_blank">dynamicContentTesting.js</a></p>
+    <p><strong>Selenium IDE:</strong></p>
 
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2 " data-bs-toggle="collapse"
-        data-bs-target="#collapseDCTestcases" aria-expanded="false" aria-controls="collapseDCTestcases">
-        Testcases
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseDCTestcases">
-        <ol>
-          <li>Toggle Hide-Button from Hide to Show: Content is displayed</li>
-          <li>Toggle Hide-Button from Show to Hide: Content is not displayed</li>
-          <li>Testcases for various slider element positions</li>
-        </ol>
-        <p>Slider positions were set manually because React Apps don't allow anonymous data manipulation from the
-          console.</p>
-      </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Testcases</summary>
+      <ol>
+        <li>Toggle Hide-Button from Hide to Show: Content is displayed</li>
+        <li>Toggle Hide-Button from Show to Hide: Content is not displayed</li>
+        <li>Testcases for various slider element positions</li>
+      </ol>
+      <p>Slider positions were set manually because React Apps don't allow anonymous data manipulation from the
+        console.</p>
+    </details>
 
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2 " data-bs-toggle="collapse"
-        data-bs-target="#collapseDCHowToRun" aria-expanded="false" aria-controls="collapseDCHowToRun">
-        How to Run Test
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseDCHowToRun">
-        <h5>Toggle Show/Hide (Testcases 1, 2)</h5>
-        <pre><code>checkHideShow()</code></pre>
-        <h5>Check Time till Dynamic Content Appears (Testcases 3)</h5>
-        <ol>
-          <li>Set slider position</li>
-          <li>Run test</li>
-        </ol>
-        <pre><code>checkDynamicContent(times)</code></pre>
-      </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">How to Run Test</summary>
+      <h5>Toggle Show/Hide (Testcases 1, 2)</h5>
+      <pre><code>checkHideShow()</code></pre>
+      <h5>Check Time till Dynamic Content Appears (Testcases 3)</h5>
+      <ol>
+        <li>Set slider position</li>
+        <li>Run test</li>
+      </ol>
+      <pre><code>checkDynamicContent(times)</code></pre>
+    </details>
 
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2 " data-bs-toggle="collapse"
-        data-bs-target="#collapseDCLocator" aria-expanded="false" aria-controls="collapseDCLocator">
-        Locator Strategy
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseDCLocator">
-        <ul>
-          <li>For elements that exist on page load, constants for the nodes were used. The maintainer of the page
-            provides the elements with <code>data-test</code> attributes that allow easy identification.</li>
-          <li>For dynamically generated elements, the parent element's first child was determined at runtime.</li>
-        </ul>
-      </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Locator Strategy</summary>
+      <ul>
+        <li>For elements that exist on page load, constants for the nodes were used. The maintainer of the page
+          provides the elements with <code>data-test</code> attributes that allow easy identification.</li>
+        <li>For dynamically generated elements, the parent element's first child was determined at runtime.</li>
+      </ul>
+    </details>
 
-      <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2 " data-bs-toggle="collapse"
-        data-bs-target="#collapseDCFunctions" aria-expanded="false" aria-controls="collapseDCFunctions">
-        Function Description
-        <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-      </h4>
-      <div class="collapse" id="collapseDCFunctions">
-        <h5>determineExpected()</h5>
-        <p>Checks the <code>classList.length</code> of the hidable element and returns the opposite using a ternary
-          expression. This is a lazy check because the tested element had no other classes. In real life, checking for
-          <code>classList.contains('hidden')</code> would be the better choice.
-        </p>
-        <h5>checkDynamicContent(times = 10)</h5>
-        <p><code>checkDynamicContent</code> uses a <code>setInterval</code> of 500 ms to check if the loading indicator
-          is still present. The check stops after <code>times*500ms</code>. Each interval console logs the time passed
-          and the status of the loading indicator. Assertion of time passed until UL appears against value set in
-          slider.</p>
-      </div>
-    </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Function Description</summary>
+      <h5>determineExpected()</h5>
+      <p>Checks the <code>classList.length</code> of the hidable element and returns the opposite using a ternary
+        expression. This is a lazy check because the tested element had no other classes. In real life, checking for
+        <code>classList.contains('hidden')</code> would be the better choice.
+      </p>
+      <h5>checkDynamicContent(times = 10)</h5>
+      <p><code>checkDynamicContent</code> uses a <code>setInterval</code> of 500 ms to check if the loading indicator
+        is still present. The check stops after <code>times*500ms</code>. Each interval console logs the time passed
+        and the status of the loading indicator. Assertion of time passed until UL appears against value set in
+        slider.</p>
+    </details>
 
-<!-- Eviltester Triangle (Cycle 1) -->
-<h3 class="mt-4">Eviltester Triangle (Cycle 1)  </h3>
-<div class="card card-body mb-4">
-  <p><strong>Page tested:</strong> <a href="https://testpages.eviltester.com/styled/apps/triangle/triangle001.html" target="_blank">https://testpages.eviltester.com/styled/apps/triangle/triangle001.html</a></p>
-  <p><strong>JS Snippet:</strong> <a href="https://github.com/yekoshy/Codeless-Automation-25/blob/main/Silvia/week%202/testscript_triangle_app.js" target="_blank">testscript_triangle_app.js</a></p>
+    <!-- Eviltester Triangle (Cycle 1) -->
+    <h3 class="mt-4">Eviltester Triangle (Cycle 1) </h3>
+    <p><strong>Page tested:</strong> <a href="https://testpages.eviltester.com/styled/apps/triangle/triangle001.html"
+        target="_blank">https://testpages.eviltester.com/styled/apps/triangle/triangle001.html</a></p>
+    <p><strong>JS Snippet:</strong> <a
+        href="https://github.com/yekoshy/Codeless-Automation-25/blob/main/Silvia/week%202/testscript_triangle_app.js"
+        target="_blank">testscript_triangle_app.js</a></p>
 
-  <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
-    data-bs-target="#collapseTriangleAltTestcases" aria-expanded="false" aria-controls="collapseTriangleAltTestcases">
-    Testcases
-    <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-  </h4>
-  <div class="collapse" id="collapseTriangleAltTestcases">
-    <p><strong>Table of human readable testcases:</strong> <a href="https://docs.google.com/spreadsheets/d/1wtYLl9pBE3UuLPWlolm2Hn2XI5GBeRqaZkBvB9Q7NUg/edit?usp=sharing" target="_blank">Google Sheet</a></p>
-    <h5>Testcase Structure</h5>
-    <ul>
-      <li>Each test case is run with several sets of data for robustness.</li>
-      <li>Test data generated with ChatGPT and matched using <code>generateTestSet</code>.</li>
-      <li>Special test sets for "Not A Number" and very large numbers written by hand.</li>
-      <li>Final testSets are arrays of objects:
-        <ul>
-          <li><strong>input:</strong> array of 3 values for triangle sides</li>
-          <li><strong>output:</strong> expected answer of identify-triangle-action</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Testcases</summary>
+      <p><strong>Table of human readable testcases:</strong> <a
+          href="https://docs.google.com/spreadsheets/d/1wtYLl9pBE3UuLPWlolm2Hn2XI5GBeRqaZkBvB9Q7NUg/edit?usp=sharing"
+          target="_blank">Google Sheet</a></p>
+      <h5>Testcase Structure</h5>
+      <ul>
+        <li>Each test case is run with several sets of data for robustness.</li>
+        <li>Test data generated with ChatGPT and matched using <code>generateTestSet</code>.</li>
+        <li>Special test sets for "Not A Number" and very large numbers written by hand.</li>
+        <li>Final testSets are arrays of objects:
+          <ul>
+            <li><strong>input:</strong> array of 3 values for triangle sides</li>
+            <li><strong>output:</strong> expected answer of identify-triangle-action</li>
+          </ul>
+        </li>
+      </ul>
+    </details>
 
-  <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
-    data-bs-target="#collapseTriangleAltHowToRun" aria-expanded="false" aria-controls="collapseTriangleAltHowToRun">
-    How to Run Test
-    <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-  </h4>
-  <div class="collapse" id="collapseTriangleAltHowToRun">
-    <p>Run the function with a test set of your choice, e.g. <code>testSetEqui</code>:</p>
-    <pre><code>testTestCase(testSetName)</code></pre>
-  </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">How to Run Test</summary>
+      <p>Run the function with a test set of your choice, e.g. <code>testSetEqui</code>:</p>
+      <pre><code>testTestCase(testSetName)</code></pre>
+    </details>
 
-  <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
-    data-bs-target="#collapseTriangleAltLocator" aria-expanded="false" aria-controls="collapseTriangleAltLocator">
-    Locator Strategy
-    <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-  </h4>
-  <div class="collapse" id="collapseTriangleAltLocator">
-    <p>Input element IDs are used as locators. Field IDs are generated from the base "side" in the loop calling <code>typeInField</code>.</p>
-  </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Locator Strategy</summary>
+      <p>Input element IDs are used as locators. Field IDs are generated from the base "side" in the loop calling
+        <code>typeInField</code>.</p>
+    </details>
 
-  <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
-    data-bs-target="#collapseTriangleAltFunctions" aria-expanded="false" aria-controls="collapseTriangleAltFunctions">
-    Function Description
-    <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-  </h4>
-  <div class="collapse" id="collapseTriangleAltFunctions">
-    <h5>generateTestSet(tcInput, tcOutput)</h5>
-    <ul>
-      <li>Helper function for test set generation</li>
-      <li>Loops through input data and assigns expected output</li>
-    </ul>
-    <h5>typeInField(fieldID, fieldData)</h5>
-    <ol>
-      <li>Puts fieldData in the input field</li>
-      <li>Asserts the value of the input field</li>
-    </ol>
-    <h5>clickButton(buttonID)</h5>
-    <ul>
-      <li>Clicks the button given as parameter</li>
-    </ul>
-    <h5>checkTriangle(testcase)</h5>
-    <ol>
-      <li>Loops through input data array and calls <code>typeInField</code> for each</li>
-      <li>Calls <code>clickButton</code></li>
-    </ol>
-    <h5>testTestCase(testCaseSet)</h5>
-    <ol>
-      <li>Loops through the testCaseSet and calls <code>checkTriangle</code> for each</li>
-      <li>Asserts the output</li>
-    </ol>
-  </div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Function Description</summary>
+      <h5>generateTestSet(tcInput, tcOutput)</h5>
+      <ul>
+        <li>Helper function for test set generation</li>
+        <li>Loops through input data and assigns expected output</li>
+      </ul>
+      <h5>typeInField(fieldID, fieldData)</h5>
+      <ol>
+        <li>Puts fieldData in the input field</li>
+        <li>Asserts the value of the input field</li>
+      </ol>
+      <h5>clickButton(buttonID)</h5>
+      <ul>
+        <li>Clicks the button given as parameter</li>
+      </ul>
+      <h5>checkTriangle(testcase)</h5>
+      <ol>
+        <li>Loops through input data array and calls <code>typeInField</code> for each</li>
+        <li>Calls <code>clickButton</code></li>
+      </ol>
+      <h5>testTestCase(testCaseSet)</h5>
+      <ol>
+        <li>Loops through the testCaseSet and calls <code>checkTriangle</code> for each</li>
+        <li>Asserts the output</li>
+      </ol>
+    </details>
 
-  <h4 class="toggle-btn fs-5 bg-primary text-white px-3 py-2" data-bs-toggle="collapse"
-    data-bs-target="#collapseTriangleAltLessons" aria-expanded="false" aria-controls="collapseTriangleAltLessons">
-    Lessons Learned
-    <span class="ms-2"><i class="bi bi-chevron-down"></i></span>
-  </h4>
-  <div class="collapse" id="collapseTriangleAltLessons">
-    <ul>
-      <li>Always make sure your assertion is robust!</li>
-      <li>Running testCaseSets for T002 - T006 seemed to work, but T007 (NaN) failed, and T008 failed sometimes.</li>
-      <li>Reason: Incorrect use of <code>setTimeout</code> and identical expected results in T002-T006 masked the issue.</li>
-    </ul>
-  </div>
-</div>
+    <details>
+      <summary class="fs-5 bg-primary text-white px-3 py-2">Lessons Learned</summary>
+      <ul>
+        <li>Always make sure your assertion is robust!</li>
+        <li>Running testCaseSets for T002 - T006 seemed to work, but T007 (NaN) failed, and T008 failed sometimes.</li>
+        <li>Reason: Incorrect use of <code>setTimeout</code> and identical expected results in T002-T006 masked the
+          issue.</li>
+      </ul>
+    </details>
 
   </main>
   <!-- Bootstrap JS Bundle (includes Popper) -->
