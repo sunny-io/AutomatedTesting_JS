@@ -9,7 +9,7 @@
   <title>Testautomation Course Frauenloop 2025</title>
   <style>
     body {
-      background: url('https://via.placeholder.com/1920x1080?text=Background+Image') no-repeat center center fixed;
+      background-color: #edf1f4;
       background-size: cover;
     }
 
@@ -28,7 +28,7 @@
     }
 
     .bg-primary {
-      background-color: #2d99f7 !important;
+      background-color: #3c9aec !important;
     }
   </style>
 </head>
@@ -40,6 +40,74 @@
     <p>This page is still in Draft mode.</p>
     <!--Second Cycle Card-->
     <h2 class="mt-5 mb-3">My Second Cycle - Selenium Webdriver and Testing Frameworks</h2>
+    <p>A lot of pages we tested with snippets and Selinium IDE in the first cycle are now used again.</p>
+    <!-- Eviltester Calculator-->
+      <h3 class="mt-4">Eviltester Calculator</h3>
+      <p><strong>Page tested:</strong> <a href="https://testpages.eviltester.com/styled/calculator"
+          target="_blank">https://testpages.eviltester.com/styled/calculator</a></p>
+      <p><strong>Selenium Webdriver file:</strong> <a
+          href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/calculator.js"
+          target="_blank">calculator.js</a></p>
+      <p><strong>Assertion library:</strong> Chai</p>
+      <details>
+        <summary class="fs-5 px-3 py-2">Testcases</summary>
+        <p><strong>Table of human readable testcases:</strong> <a
+            href="https://docs.google.com/spreadsheets/d/1Hv7bTfEA3gaMvX0xPVLqcSFQEeNEc9vwF8BPeMiWaVo/edit?usp=sharing"
+            target="_blank">Google Sheet</a></p>
+        <p><strong>Testcases as JS file:</strong> <a
+            href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/testdata_calculator.js"
+            target="_blank">testdata_calculator.js</a></p>
+        <h5>Testcase Structure</h5>
+        <p>Testcases is a list of testcase objects.</p>
+        <p>Testcase Object Description </p>
+        <ul>
+          <li>name: testcase identifier, string</li>
+          <li>field1: input data for first input field, number or string</li>
+          <li>field2: input data for second input field, number oder string</li>
+          <li>operator: text to be selected in the function selection list, string</li>
+          <li>expected: Expected result, number or string</li>
+          <li>description: short description of test case, string</li>
+        </ul>
+      
+      </details>
+      <details>
+        <summary class="fs-5  px-3 py-2">How to Run Test</summary>
+        <p>Run <code>calculator.js</code> to execute all tests.</p>
+      </details>
+      
+      <details>
+        <summary class="fs-5  px-3 py-2">Locator Strategy</summary>
+        <p>IDs are used as locators. </p>
+      </details>
+      
+      <details>
+        <summary class="fs-5  px-3 py-2">Function Description</summary>
+        <h5>runAllTests(testcases)</h5>
+        
+        <p>The function loops through <code>testcases</code> and calls <code>test(testcase)</code> for each.</p>
+        <p>Each test is run in its own browser instance.</p>
+        <h5>test(testcase)</h5>
+        <p>The function generates the driver and browser instance for the test case and calls the function <code>fillFieldsAndCheck(driver, testcase)</code> executing data input and assertion.</p>
+        <h5>fillFieldsAndCheck(driver, testcase)</h5>
+        <p>This function executes the test case and asserts the result:</p>
+        <ol>
+         <li>Calls <code>fillField(driver, fieldId, keys )</code> for each field</li>
+         <li>Calls <code>doSelect(driver, operator)</code> to set the correct operator</li>
+         <li>Clicks on the Calculate button </li>
+         <li>Asserts the result</li>
+        </ol>
+        <h5>fillField(driver, fieldId, keys)</h5>
+        <p>This function fills the field and asserts the field value after input.</p>
+        <h5>doSelect(driver, operator)</h5>
+        <p>This function creates a Select object to interact with the selection list.</p>
+        <ol>
+          <li>Creates Select object named 'select'</li>
+          <li>Uses <code>select.selectByVisibleText(operator)</code> to set option</li>
+          <li>Gets the text of the selected option using <code>select.getFirstSelectedOption()</code> followed by <code>.getText()</code> on the result</li>
+          <li>Asserts selected option matches operator</li>
+        </ol>
+       
+      </details>
 
     <!-- Eviltester Triangle -->
     <h3 class="mt-4">Eviltester Triangle</h3>
@@ -49,9 +117,10 @@
         href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/triangle.js"
         target="_blank">triangle.js</a></p>
     <p><strong>Assertion library:</strong> Chai</p>
+   
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Testcases</summary>
+      <summary class="fs-5  px-3 py-2">Testcases</summary>
       <p><strong>Table of human readable testcases:</strong> <a
           href="https://docs.google.com/spreadsheets/d/1xAwU4QyGhVhD6U4DlsZsxvc1C1JJJGp6o3kXn2StTJM/edit?usp=drive_link"
           target="_blank">Google Sheet</a></p>
@@ -73,17 +142,17 @@
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">How to Run Test</summary>
+      <summary class="fs-5  px-3 py-2">How to Run Test</summary>
       <p>Run <code>triangle.js</code> to execute all tests.</p>
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Locator Strategy</summary>
+      <summary class="fs-5  px-3 py-2">Locator Strategy</summary>
       <p>Input element IDs are used as locators. See <code>guiLocators</code> constant in the code.</p>
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Function Description</summary>
+      <summary class="fs-5  px-3 py-2">Function Description</summary>
       <h5>runAll(testSets)</h5>
       <ul>
         <li>Loops through all test cases and starts a new driver instance for each.</li>
@@ -117,7 +186,7 @@
         target="_blank">eviltester_dynamic_table.js</a></p>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Testcases</summary>
+      <summary class="fs-5  px-3 py-2">Testcases</summary>
       <p><strong>Table of human readable testcases:</strong> <a
           href="https://docs.google.com/spreadsheets/d/1UB53EaM3oLqE9KoS3IaesyFbqGo6-P4CB0RgitVYlH8"
           target="_blank">Google Sheet</a></p>
@@ -133,7 +202,7 @@
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">How to run test</summary>
+      <summary class="fs-5  px-3 py-2">How to run test</summary>
       <pre><code>runTest(testcase)</code></pre>
       <p>Examples:</p>
       <pre><code>runTest(testcases[0])
@@ -141,7 +210,7 @@ runTest(generateTestcase(columns, rows))</code></pre>
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Locator strategy</summary>
+      <summary class="fs-5  px-3 py-2">Locator strategy</summary>
       <p>Input element IDs are used as locators.</p>
       <p>The ID of the table changes according to the tableID provided in the testcase.<br>
         <code>testcase.tableID</code> is therefore used to address the table for assertions.
@@ -149,7 +218,7 @@ runTest(generateTestcase(columns, rows))</code></pre>
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Function Description</summary>
+      <summary class="fs-5  px-3 py-2">Function Description</summary>
       <h5>runTest(testcase)</h5>
       <ol>
         <li>console.logs the testcase name</li>
@@ -198,7 +267,7 @@ runTest(generateTestcase(columns, rows))</code></pre>
         target="_blank">wp_tables_practice-automation.side</a></p>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Testcases</summary>
+      <summary class="fs-5  px-3 py-2">Testcases</summary>
       <ol>
         <li>Lookup Prices in static table<br>
           <code>expectedPriceList = [{name:'Laptop', price:'$1200.00'}, {name:'Marbles', price:'$1.25'}, {name:'Oranges', price:'$3.99'}]</code>
@@ -218,7 +287,7 @@ runTest(generateTestcase(columns, rows))</code></pre>
     <p><strong>Selenium IDE:</strong></p>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Testcases</summary>
+      <summary class="fs-5  px-3 py-2">Testcases</summary>
       <ol>
         <li>Toggle Hide-Button from Hide to Show: Content is displayed</li>
         <li>Toggle Hide-Button from Show to Hide: Content is not displayed</li>
@@ -229,7 +298,7 @@ runTest(generateTestcase(columns, rows))</code></pre>
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">How to Run Test</summary>
+      <summary class="fs-5  px-3 py-2">How to Run Test</summary>
       <h5>Toggle Show/Hide (Testcases 1, 2)</h5>
       <pre><code>checkHideShow()</code></pre>
       <h5>Check Time till Dynamic Content Appears (Testcases 3)</h5>
@@ -241,7 +310,7 @@ runTest(generateTestcase(columns, rows))</code></pre>
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Locator Strategy</summary>
+      <summary class="fs-5  px-3 py-2">Locator Strategy</summary>
       <ul>
         <li>For elements that exist on page load, constants for the nodes were used. The maintainer of the page
           provides the elements with <code>data-test</code> attributes that allow easy identification.</li>
@@ -250,7 +319,7 @@ runTest(generateTestcase(columns, rows))</code></pre>
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Function Description</summary>
+      <summary class="fs-5  px-3 py-2">Function Description</summary>
       <h5>determineExpected()</h5>
       <p>Checks the <code>classList.length</code> of the hidable element and returns the opposite using a ternary
         expression. This is a lazy check because the tested element had no other classes. In real life, checking for
@@ -272,7 +341,7 @@ runTest(generateTestcase(columns, rows))</code></pre>
         target="_blank">testscript_triangle_app.js</a></p>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Testcases</summary>
+      <summary class="fs-5  px-3 py-2">Testcases</summary>
       <p><strong>Table of human readable testcases:</strong> <a
           href="https://docs.google.com/spreadsheets/d/1wtYLl9pBE3UuLPWlolm2Hn2XI5GBeRqaZkBvB9Q7NUg/edit?usp=sharing"
           target="_blank">Google Sheet</a></p>
@@ -291,19 +360,19 @@ runTest(generateTestcase(columns, rows))</code></pre>
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">How to Run Test</summary>
+      <summary class="fs-5  px-3 py-2">How to Run Test</summary>
       <p>Run the function with a test set of your choice, e.g. <code>testSetEqui</code>:</p>
       <pre><code>testTestCase(testSetName)</code></pre>
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Locator Strategy</summary>
+      <summary class="fs-5  px-3 py-2">Locator Strategy</summary>
       <p>Input element IDs are used as locators. Field IDs are generated from the base "side" in the loop calling
         <code>typeInField</code>.</p>
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Function Description</summary>
+      <summary class="fs-5  px-3 py-2">Function Description</summary>
       <h5>generateTestSet(tcInput, tcOutput)</h5>
       <ul>
         <li>Helper function for test set generation</li>
@@ -331,7 +400,7 @@ runTest(generateTestcase(columns, rows))</code></pre>
     </details>
 
     <details>
-      <summary class="fs-5 bg-primary text-white px-3 py-2">Lessons Learned</summary>
+      <summary class="fs-5  px-3 py-2">Lessons Learned</summary>
       <ul>
         <li>Always make sure your assertion is robust!</li>
         <li>Running testCaseSets for T002 - T006 seemed to work, but T007 (NaN) failed, and T008 failed sometimes.</li>
