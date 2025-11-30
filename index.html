@@ -73,33 +73,40 @@
 <body>
   <main class="main-bg p-lg-5">
     <h1 class="mb-4 text-center">Testautomation Course Frauenloop 2025</h1>
-    <p class="text-center">Many thanks to all the people providing pages to practice automated testing with!</p>
-    <p>This page is still in Draft mode.</p>
+    <p class="text-center">Heartfelt thanks to <a href="https://github.com/yekoshy">Yasmin</a>. You are a great teacher!</p>
+    <p class="text-center">Many thanks to all the people who maintain trainings sites for fledgling testers on the net. <br> Especially to <a href="https://www.linkedin.com/in/eviltester">eviltester Alan Richardson</a> and <a href="https://github.com/moatazeldebsy">Moataz Nabil</a>.</p>
+    <p class="text-center">This page is a work in progress.</p>
    
     <!--Second Cycle Card-->
     <h2 class="mt-5 mb-3">My Second Cycle - Selenium Webdriver and Testing Frameworks</h2>
-    <p>A lot of pages we tested with snippets and Selinium IDE in the first cycle are now used again.</p>
+    <p>This cycle focussed on Selenium Webdriver, using the chai assertion library and the mocha testing framework. <br> We refined some of the tests from the cycle before with the new tool set.</p>
     
       <article class="card ">
       <h3 class="mt-3">Eviltester Calculator</h3>
       <p><strong>Page tested:</strong> <a href="https://testpages.eviltester.com/styled/calculator"
-          target="_blank">https://testpages.eviltester.com/styled/calculator</a></p>
-      <p><strong>Selenium Webdriver file:</strong> <a
-          href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/calculator.js"
-          target="_blank">calculator.js</a></p>
+          target="_blank">https://testpages.eviltester.com/styled/calculator</a>
+        <br>Page was updated in November and now redirects to <a href="https://testpages.eviltester.com/apps/calculator-api/form-calculator/" target="_blank">https://testpages.eviltester.com/apps/calculator-api/form-calculator/</a></p>
+      <p><strong>Selenium Webdriver files:</strong></p>
+        <ul>
+          <li><a
+          href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/Calculator/calculator.js"
+          target="_blank">Basic: calculator.js</a></li>
+          <li> <a href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/Calculator/calculator_mocha.js">With mocha: calculator_mocha.js </a></li>
+          </ul>
+
       <p><strong>Assertion library:</strong> Chai</p>
       <details>
         <summary class="fs-5 px-3 py-2">Testcases</summary>
-        <p><strong>Table of human readable testcases:</strong> <a
+        <p class="px-3 py-1 mb-1""><strong>Table of human readable testcases:</strong> <a
             href="https://docs.google.com/spreadsheets/d/1Hv7bTfEA3gaMvX0xPVLqcSFQEeNEc9vwF8BPeMiWaVo/edit?usp=sharing"
             target="_blank">Google Sheet</a></p>
-        <p><strong>Testcases as JS file:</strong> <a
+        <p class="px-3 py-1 mb-1""><strong>Testcases as JS file:</strong> <a
             href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/testdata_calculator.js"
             target="_blank">testdata_calculator.js</a></p>
-        <h5>Testcase Structure</h5>
-        <p>Testcases is a list of testcase objects.</p>
-        <p>Testcase Object Description </p>
-        <ul>
+        <h6 class="px-3 py-2 mb-2">Testcase Structure</h6>
+        <p class="px-3 py-1 mb-1" mb-1">Testcases is a list of testcase objects.</p>
+        <p class="px-3 py-1 mb-1" mb-1">Testcase Object Description: </p>
+        <ul class="px-5 py-0">
           <li>name: testcase identifier, string</li>
           <li>field1: input data for first input field, number or string</li>
           <li>field2: input data for second input field, number oder string</li>
@@ -110,43 +117,110 @@
       
       </details>
       <details>
-        <summary class="fs-5  px-3 py-2">How to Run Test</summary>
-        <p>Run <code>calculator.js</code> to execute all tests.</p>
+        <summary class="fs-5 px-3 py-2">Basic Testing with Chai Assertion</summary>
+          <details>
+            <summary class="fs-6  px-3 py-2">How to Run Test</summary>
+            <p class="px-3 py-1 mb-1" mb-1">Run <code>calculator.js</code> to execute all tests.</p>
+          </details>
+          
+          <details>
+            <summary class="fs-6  px-3 py-2">Locator Strategy</summary>
+            <p class="px-3 py-1 mb-1" mb-1">IDs are used as locators. </p>
+          </details>
+          
+          <details>
+            <summary class="fs-6  px-3 py-2">Function Description</summary>
+            <h6  class="px-3 py-2 mb-1">runAllTests(testcases)</h6>
+          
+            <p class="px-3 py-1 mb-1"">The function loops through <code>testcases</code> and calls <code>test(testcase)</code> for each.</p>
+            <p class="px-3 py-1 mb-1"">Each test is run in its own browser instance.</p>
+            <h6 class="px-3 py-2 mb-1">test(testcase)</h6>
+            <p class="px-3 py-1 mb-1"">The function generates the driver and browser instance for the test case and calls the function
+              <code>fillFieldsAndCheck(driver, testcase)</code> executing data input and assertion.</p>
+            <h6 class="px-3 py-2 mb-1">fillFieldsAndCheck(driver, testcase)</h6>
+            <p class="px-3 py-1 mb-1"">This function executes the test case and asserts the result:</p>
+            <ol>
+              <li>Calls <code>fillField(driver, fieldId, keys )</code> for each field</li>
+              <li>Calls <code>doSelect(driver, operator)</code> to set the correct operator</li>
+              <li>Clicks on the Calculate button </li>
+              <li>Asserts the result</li>
+            </ol>
+            <h6>fillField(driver, fieldId, keys)</h6>
+            <p class="px-3 py-1 mb-1"">This function fills the field and asserts the field value after input.</p>
+            <h class="px-3 py-1">doSelect(driver, operator)</h6>
+            <p class="px-3 py-1 mb-1"">This function creates a Select object to interact with the selection list.</p>
+            <ol>
+              <li>Creates Select object named 'select'</li>
+              <li>Uses <code>select.selectByVisibleText(operator)</code> to set option</li>
+              <li>Gets the text of the selected option using <code>select.getFirstSelectedOption()</code> followed by
+                <code>.getText()</code> on the result</li>
+              <li>Asserts selected option matches operator</li>
+            </ol>
+          
+          </details>
       </details>
-      
       <details>
-        <summary class="fs-5  px-3 py-2">Locator Strategy</summary>
-        <p>IDs are used as locators. </p>
-      </details>
-      
-      <details>
-        <summary class="fs-5  px-3 py-2">Function Description</summary>
-        <h5>runAllTests(testcases)</h5>
-        
-        <p>The function loops through <code>testcases</code> and calls <code>test(testcase)</code> for each.</p>
-        <p>Each test is run in its own browser instance.</p>
-        <h5>test(testcase)</h5>
-        <p>The function generates the driver and browser instance for the test case and calls the function <code>fillFieldsAndCheck(driver, testcase)</code> executing data input and assertion.</p>
-        <h5>fillFieldsAndCheck(driver, testcase)</h5>
-        <p>This function executes the test case and asserts the result:</p>
-        <ol>
-         <li>Calls <code>fillField(driver, fieldId, keys )</code> for each field</li>
-         <li>Calls <code>doSelect(driver, operator)</code> to set the correct operator</li>
-         <li>Clicks on the Calculate button </li>
-         <li>Asserts the result</li>
-        </ol>
-        <h5>fillField(driver, fieldId, keys)</h5>
-        <p>This function fills the field and asserts the field value after input.</p>
-        <h5>doSelect(driver, operator)</h5>
-        <p>This function creates a Select object to interact with the selection list.</p>
-        <ol>
-          <li>Creates Select object named 'select'</li>
-          <li>Uses <code>select.selectByVisibleText(operator)</code> to set option</li>
-          <li>Gets the text of the selected option using <code>select.getFirstSelectedOption()</code> followed by <code>.getText()</code> on the result</li>
-          <li>Asserts selected option matches operator</li>
-        </ol>
+        <summary class="fs-5 px-3 py-2">With Mocha </summary>
+        <p class="px-3 py-1 mb-1"">Now using mocha as a test framework and a page class to encapsulate the interactions with the app.</p>
+        <details>
+          <summary class="fs-6  px-3 py-2">How to Run Test</summary>
+         
+            <ul>
+              <li>Make sure youre working directory is ./Classes/Tests.</li>
+              <li>Run <code>npx mocha ./Calculator/calculator_mocha.js</code> </li>
+            </ul>  
+        </details>
+        <details>
+          <summary class="fs-6  px-3 py-2">Classes and Methods</summary>
+          <details>
+            <summary class="fs-6  px-4 py-2">Generator class (imported)</summary>
+            <p class="px-4 py-1">Reusing the random test case idea from the first cycle, this helper class generates a test set for all strinctly numeric test cases with random numbers. <br>
+            Resulting test set: <code>randomTC</code> ist used in the thrid mocha test. </p>           
+          </details>
+          <details>
+            <summary class="fs-6  px-4 py-2">Calculator class</summary>
+            <p class="px-4 py-1">Encapsulates all functions to interact with the app</p>
+            <ul>
+              <li><b>async open():</b> Initializes the Selenium Webdriver with the page url</li>
+              <li><b>asny resize():</b> Resizes the browser window to  a defines size. </li>
+              <li><b>async isPresent(locator):</b> Checks if the element specified by the locator is found. Returns true or false</li>
+              <li><b>async setInput(locator, input):</b> Locates the input element specified by the locator, empties the input field and fills in <code>input</code> usinge <code>sendKeys()</code></li>
+              <li><b>async selectInList(locator, input): </b> Locates the selection list specified by <code>locator</code> and selects the input by text using Selenium's <code>Select</code>class.</li>
+              <li><b>async click(locator):</b>Try/Catch around the function to click the element specified by <code>locator</code>. The catch helps with troubleshooting if elements are not clickable for some reason.</li>
+              <li><b>async setAllInputs(testcase):</b> Wrapper function to fill both fields, set the select list and click the button.</li>
+              <li><b>async getAnswer():</b>Retrives the calculator result for assertion. Uses implicit wait <code>until.elementIsVisible</code>. </li>
+              <li><b>async getTitle():</b>Retrives the page title for assertion.</li>
+              <li><b>async close(): </b> Method to gracefully close the driver after a test.</li>
+            </ul>
+
+          </details>
+          <details>
+            <summary class="fs-6  px-4 py-2">Mocha test suite</summary>
+            <p class="px-4 py-1">URL of test page is passed to the new calculator object.</p>
+            <p class="px-4 py-1">Individual browser instance is opened and resized to 1504 x 1024 px for each test and closed after the test.</p>
+            <details>
+              <summary class="fs-6  px-4 py-2">Test 1: test page title and input fields</summary>
+              <p class="px-4 py-1">Simply asserts the page title and checks if all gui elements required for the tests are found.</p>
+            </details>
+            <details>
+              <summary class="fs-6  px-4 py-2">Test2: ForEach run for the set of manually defined testcases including non-numerical inputs</summary>
+              <p class="px-4 py-1">The manually defined testcases match the test cases defined in the google sheet. They are imported as <code>testcases</code> from the <code>testdata_calculator.js</code> file also used by the older test.
+              <br>The calculation result retrieved with <code>await calculator.getAnswer()</code> is asserted against the manually defined expected result. Expected results are rounded.</p>
+            </details>
+            <details>
+              <summary  class="fs-6  px-4 py-2">Test 3: ForEach for random number test set</summary>
+                <p class="px-4 py-1">The calculation result retrieved with <code>await calculator.getAnswer()</code> is asserted against
+                  the expected result calculated from the random input. Expected results are not rounded. This leads to assertion errors in the division testcases.
+                <br>Chai assert cannot be used with chai-almost(). <br>ToDo: Include rounding into Generator class.</p>
+            </details>
+          </details>
+        </details>
+        </details>
        
-      </details>
+       
+        
+
+
 </article>
   <article class="card ">
     <!-- Eviltester Triangle -->
