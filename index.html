@@ -92,6 +92,8 @@
           href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/Calculator/calculator.js"
           target="_blank">Basic: calculator.js</a></li>
           <li> <a href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/Calculator/calculator_mocha.js">With mocha: calculator_mocha.js </a></li>
+          <li><a
+            href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/tree/main/Classes/Tests/Calculator/Calculator_w_Strategy">Pattern version folder: Calculator_w_Strategy</a></li>
           </ul>
 
       <p><strong>Assertion library:</strong> Chai</p>
@@ -100,12 +102,12 @@
         <p class="px-3 py-1 mb-1""><strong>Table of human readable testcases:</strong> <a
             href="https://docs.google.com/spreadsheets/d/1Hv7bTfEA3gaMvX0xPVLqcSFQEeNEc9vwF8BPeMiWaVo/edit?usp=sharing"
             target="_blank">Google Sheet</a></p>
-        <p class="px-3 py-1 mb-1""><strong>Testcases as JS file:</strong> <a
+        <p class="px-3 py-1 mb-1"><strong>Testcases as JS file:</strong> <a
             href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/testdata_calculator.js"
             target="_blank">testdata_calculator.js</a></p>
-        <h6 class="px-3 py-2 mb-2">Testcase Structure</h6>
-        <p class="px-3 py-1 mb-1" mb-1">Testcases is a list of testcase objects.</p>
-        <p class="px-3 py-1 mb-1" mb-1">Testcase Object Description: </p>
+            <p class="px-3 py-1 mb-1"><strong>Testcases as JSON (for pattern version): <a href="https://github.com/sunny-io/Frauenloop_cycle2__SeleniumWB/blob/main/Classes/Tests/Calculator/Calculator_w_Strategy/testdata_calculator.json">testdata_calculator.json</a></strong></p>
+        <h5 class="px-3 py-1 mb-2">Testcase Structure</h5>
+        <p class="px-3 py-1 mb-1" mb-1">Testcase Description: </p>
         <ul class="px-5 py-0">
           <li>name: testcase identifier, string</li>
           <li>field1: input data for first input field, number or string</li>
@@ -215,6 +217,15 @@
             </details>
           </details>
         </details>
+        </details>
+        <details>
+          <summary class="fs-5 px-3 py-2">Using PageObject, Data Driven and Strategy patterns</summary>
+         <p>This is a rewrite of the mocha version with clear separation of layers.</p>
+<ul>
+  <li> <code>CaclucatorPageModel.js</code>: Exports the Calculator class. This holds all functions for interacting with the page and a chrome driver implementation. Locators are set in the constructor</li>
+  <li><code>strategies.js</code>: Imports the Calculator module and extends the class for multi-browser testing. Exports <code> chromeCalculator, firefoxCalculator, safariCalculator</code>. </li>
+  <li><code>calculator_test.js</code>: Imports from <code>strategies.js</code> and holds the mocha layer. Uses forEach describe for multi-browser test execution.</li>
+</ul>
         </details>
        
        
